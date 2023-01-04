@@ -6,14 +6,12 @@
 
 int main(void){
 
-    float ganhos=0.0f;
-    float despezas=0.0f;
+    float resultado=0.0f;
 
     dados_empresa Dados;
     FILE *arquivo;
 
     carregar_dados();
-
     do{
 
     entrada_de_dados(&Dados);
@@ -21,9 +19,10 @@ int main(void){
     printf("Continuar?(S/n)");
     getchar();
     }while(getchar()=='S');
-    salva_dados(arquivo,&Dados);
-    ganhos+=(PRECO_PAINEL_SOLAR*Dados.qtd_painesSolares)+(PRECO_PECAS*Dados.qtd_pecas_vendidas);
 
-    printf("GANHO:%.2f\n",ganhos);
+    salva_dados(arquivo,&Dados);
+    resultado+=(PRECO_PAINEL_SOLAR*Dados.qtd_painesSolares)+(PRECO_PECAS*Dados.qtd_pecasVendidas);
+
+    printf("GANHO:%.2f\n",resultado);
     return 0;
 }
